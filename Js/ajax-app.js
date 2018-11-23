@@ -93,7 +93,7 @@ function closeChat(){
 	var data = "action=" + action;
 	$.ajax({
 		url: 'https://web.njit.edu/~kas58/it202-hw5/Model/db_query.php',
-		type: post,
+		type: 'post',
 		data: data,
 		success: function(response){
 			$('#close-chat').val('');
