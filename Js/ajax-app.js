@@ -96,7 +96,7 @@ function closeChat(){
 		type: 'post',
 		data: data,
 		success: function(response){
-			$('#close-chat').val('');
+			$('#chat-log').val('');
 			alert("Chat is closed!");
 		},
 		error: function(response){
