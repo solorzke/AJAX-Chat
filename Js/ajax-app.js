@@ -16,8 +16,10 @@ $(document).ready(function(){
 	$('#close-chat').click(function(){
 		closeChat();
 	});
-
 });
+
+var r_message = 'null', check_message = 'null', patron_rec;
+
 
 function verify(){
 	var patron = $("#patron").val();
@@ -78,9 +80,11 @@ function receiveMessage(){
 		type: 'post',
 		data: data,
 		success: function(response){
-			console.log(response);
-			$('#chat-log').append(patron_r + ': ' + response + '\n');
-			alert(response);
+			if(response != 'no'){
+				console.log(r_message + " " + check_message);
+				r_message = response;
+				patron_rec = patron_r;
+			}
 		},
 		error: function(response){
 			alert("Failed to receive message!");
@@ -106,5 +110,14 @@ function closeChat(){
 }
 
 
+var v = setInterval(function(){
+	receiveMessage();
+	if(r_message !== check_message){ 
+		console.log("Adding received message!");
+		$('#chat-log').append(patron_rec + ': ' + r_message + '\n');
+		check_message = r_message;
+	}
+	else{ console.log("no new message"); }
+}, 1000);
 
 
