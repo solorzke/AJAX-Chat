@@ -4,11 +4,18 @@
 	content: “ ”;
  	background: inherit; 
 	box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
-	
 }
 
-.chat-frame{
-	margin: 50px 50px;
+.chat-frame{ margin: 50px 50px;	}
+
+.instructions{
+	border: 1px solid yellow;
+	float: left;
+	margin: 0px 0px;
+	position: absolute;
+	width: 25%;
+	background: inherit; 
+	box-shadow: inset 0 0 0 3000px rgba(255,255,255,0.3);
 }
 
 #connect, #send, #listen, #close-chat{
@@ -17,22 +24,28 @@
 	font-size: 60px;
 }
 
-#listen{
-	visibility: hidden;
-}
-
-h1, h3{
-	text-align: center;
-}
+#listen{ visibility: hidden; }
 
 #patron{
 	margin-left: 3%;
 	margin-bottom: 2%;
+	border: 2px black solid;
 }
+
+#patron-r{ border: 2px black solid; }
 
 #card-no{
 	margin-left: 12.5%;
+	border: 2px black solid;
 }
+
+h1, h3{ text-align: center; }
+
+textarea{
+	border: 2px black solid;
+	color: blue;
+}
+
 
 html{
 	background-image: url(http://bit.ly/2gPLxZ4);
@@ -41,3 +54,4 @@ html{
  	background-size: cover;
 	font-family: 'Raleway', sans-serif;
 }
+
