@@ -1,5 +1,7 @@
 
 $(document).ready(function(){
+	$('#send').hide();
+	$('#close-chat').hide();
 
 	$("#connect").click(function(){
 		verify();
@@ -16,6 +18,13 @@ $(document).ready(function(){
 	$('#close-chat').click(function(){
 		closeChat();
 	});
+
+	$('#message').keyup(function(event){
+	    if(event.keyCode == 13){
+	        $('#send').click();
+	    }
+	});
+
 });
 
 var r_message = 'null', check_message = 'null', patron_rec;
@@ -32,8 +41,12 @@ function verify(){
 		type:"post",
 		data: data,
 		success: function(response){
-			if(response == 'true')
+			if(response == 'true'){
 				alert('Login Successful');
+				$('#send').show();
+				$('#close-chat').show();
+			}
+
 			else
 				alert("login failed");
 		},
@@ -57,7 +70,8 @@ function sendMessage(){
 		success: function(response){
 			if(response == 'true'){
 				$("#chat-log").append(patron + ": " + message + "\n");
-				alert("Message was sent!");
+				$('#message').val('');
+				console.log("Message was sent!");
 			}
 			else{
 				alert("Check Database!");
@@ -101,6 +115,7 @@ function closeChat(){
 		data: data,
 		success: function(response){
 			$('#chat-log').val('');
+			$('#message').val('');
 			alert("Chat is closed!");
 		},
 		error: function(response){
