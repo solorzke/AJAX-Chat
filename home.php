@@ -10,7 +10,16 @@
 		<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 	</head>
 	<body>
-		<div class="chat-box">
+		<div class="instructions">
+			<ol>
+				<li>Enter Patron username, card no. and click 'Connect'.</li>
+				<li>After successful connection, enter recipient's patron username in the appropriate field.</li>
+				<li>Type a message in the chat message box, and click 'send'.</li>
+				<li>Wait for a response (if recipient's name is entered correctly) and then chat away!</li>
+				<li>Click 'close chat' when you want to terminate chat session.</li>
+			</ol>
+		</div>
+		<div class="chat-box" id="chat-box">
 			<div class="chat-frame">
 				<h1>Chat Box</h1>
 				<label>Patron Name: </label>
@@ -36,7 +45,7 @@
 				<br>
 				<input type="submit" name="" value="Listen" id="listen">
 				<br>
-				<textarea id="chat-log" rows="15" cols="50"></textarea>
+				<textarea id="chat-log" rows="15" cols="50" readonly></textarea>
 				<input type="submit" name="" value="Close Chat" id="close-chat">
 			</div>
 		</div>
